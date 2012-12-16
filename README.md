@@ -15,7 +15,7 @@ The work on this plugin was inspired by [Spike Brehm's](https://github.com/spike
 
 In your underscore template for MyItemView, which contains a subview MySubview:
 
-```html
+```
 <script type='text/template' id="MyItemViewTemplate">
 	<h1>This is my item view template</h1>
 
@@ -46,16 +46,16 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-After including the `backbone.marionette.subviews.js` in your project (after backbone.marionette), the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
+After including the `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
 
 The subviewCreators hash of your view should contain an element for each subview. The key of each element is the subview's name, and the value is a function that returns the subview instance.
 
-Subviews are not rendered after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender function is called) after all subviews have finished rendering. The sequence of events is as follows:
+Subviews are not rendered until after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender function is called) after all subviews have finished rendering. The sequence of events is as follows:
 
 	1. before:render event is fired
-	2. [parentview is rendered]
-	3. render event is fired
+	2. [parent view is rendered]
+	3. render event is fired on parent view
 	4. [subviews are created and rendered in the order they appear in the underscore template]
-	5. after:render event is fired
+	5. after:render event is fired on parent view
 
 You can turn on debugMode be setting the variable of the same name to true, which will help in debugging errors in rendering code by leaving breadcrumbs in the console log. (The call stack can be difficult to interpret when rendering subviews several layers deep.)
