@@ -58,4 +58,4 @@ Subviews are not rendered after the parent view has completely finished renderin
 	4. [subviews are created and rendered in the order they appear in the underscore template]
 	5. after:render event is fired
 
-
+You can turn on debugMode be setting variable of same name to true, which will help in debugging errors in rendering code. (The call stack can be difficult to interpret when several layers deep.)

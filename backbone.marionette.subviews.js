@@ -5,7 +5,7 @@
  * http://github.com/dgbeck/backbone.marionette.subviews
 */
 (function(){
-	var debugMode = true;
+	var debugMode = false;
 	var originalMarionetteItemView = Backbone.Marionette.ItemView;
 
 	Backbone.Marionette.ItemView = originalMarionetteItemView.extend({
