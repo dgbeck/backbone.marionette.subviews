@@ -2,7 +2,7 @@
 
 Easily create subviews (views within views) in your Backbone.js Marionette apps, directly from your underscore templates. This is a drop-in plugin that augments the original Marionette ItemView class with additional functionality.
 
-The work on this plugin was inspired by [Spike Brehm's](https://github.com/spikebrehm) NestedView.
+The work on this plugin was directly inspired by [Spike Brehm's](https://github.com/spikebrehm) NestedView.
 
 ## Benefits
 
