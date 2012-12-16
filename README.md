@@ -52,7 +52,7 @@ The subviewCreators hash of your view should contain an element for each subview
 
 Subviews are not rendered until after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender function is called) after all subviews have finished rendering. The sequence of events is as follows:
 
-	1. before:render event is fired
+	1. before:render event is fired on parent view
 	2. [parent view is rendered]
 	3. render event is fired on parent view
 	4. [subviews are created and rendered in the order they appear in the underscore template]
