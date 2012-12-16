@@ -32,14 +32,14 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 	subviewCreators : {
 		"MySubview" : function() {
 			var options = {};
-			// do any logic required to create initilaization options
+			// do any logic required to create initialization options
 			new MySubviewClass( options );
 		}
 	}
 
 	onAfterRender : {
 		// anytime after rendering, you can find the subviews in this.subviews
-		this.subviews[ "MySubview ].bind( "click", _.mySubview_onClick, this );
+		this.subviews.MySubview.bind( "click", _.mySubview_onClick, this );
 	}
 } );
 ```
@@ -50,7 +50,7 @@ The `subview` helper will automatically be available in all of your underscore t
 
 The subviewCreators hash of your view should contain an element for each subview. The key of each element is the subview's name, and the value is a function that returns the subview instance.
 
-Subviews are not rendered after the parent view has completely finished rendering. A new "after:render" event is fired (and its cooresponding onAfterRender function is called) after all subviews have finished rendering. The sequence of events is as follows:
+Subviews are not rendered after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender function is called) after all subviews have finished rendering. The sequence of events is as follows:
 
 	1. before:render event is fired
 	2. [parentview is rendered]
