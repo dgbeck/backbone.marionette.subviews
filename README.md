@@ -19,7 +19,7 @@ In your underscore template for MyItemView, which contains a subview MySubview:
 <script type='text/template' id="MyItemViewTemplate">
 	<h1>This is my item view template</h1>
 
-	<%= subview.( "MySubview" ) %>
+	<%= subview( "MySubview" ) %>
 </script>
 ```
 
