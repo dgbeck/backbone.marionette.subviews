@@ -46,9 +46,9 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-After including the `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
+After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
 
-The subviewCreators hash of your view should contain an element for each subview. The key of each element is the subview's name, and the value is a function that returns the subview instance.
+The subviewCreators hash of your view should contain an element for each subview. The key of each element is the subview's name, and the value is a function that should create and return the subview instance.
 
 Subviews are not rendered until after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender function is called) after all subviews have finished rendering. The sequence of events is as follows:
 
