@@ -6,7 +6,6 @@
 */
 (function(){
 	var debugMode = true;
-
 	var originalMarionetteItemView = Backbone.Marionette.ItemView;
 
 	Backbone.Marionette.ItemView = originalMarionetteItemView.extend({
@@ -40,17 +39,9 @@
 			}
 	
 			this.subviews = {};
-
+			
 			originalMarionetteItemView.prototype.render.apply( this, arguments );
-
-			this.$el.addClass( "view" );
-			this.$el.data( "view", this );
-
-			if( this.conditionalClassNames )
-				_.each( this.conditionalClassNames, function( conditionalFunction, className ) {
-					if( conditionalFunction.apply( _this ) ) _this.$el.addClass( className );
-				} );
-
+			
 			this.$( "script.view-placeholder" ).each( function() {
 				var thisPlaceHolderScriptEl = $( this );
 				var subviewName = thisPlaceHolderScriptEl.attr( "data-view-name" );
@@ -67,11 +58,9 @@
 				_this.subviews[ subviewName ] = newView;
 
 				thisPlaceHolderScriptEl.replaceWith( newView.$el );
-			} );
 
-			_.each( this.subviews, function( thisSubview, subviewName ) {
 				if( debugMode ) console.group( "Rendering subview " + subviewName );
-				thisSubview.render();
+				newView.render();
 				if( debugMode ) console.groupEnd();
 			} );
 

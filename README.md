@@ -46,7 +46,7 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-The `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
+After including the `backbone.marionette.subviews.js` in your project (after backbone.marionette), the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
 
 The subviewCreators hash of your view should contain an element for each subview. The key of each element is the subview's name, and the value is a function that returns the subview instance.
 
