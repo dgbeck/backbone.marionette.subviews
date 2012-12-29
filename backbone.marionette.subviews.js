@@ -69,6 +69,21 @@
 			if( debugMode ) console.groupEnd(); // "Rendering view"
 
 			return this;
+		},
+
+		onBeforeClose : function() {
+			var couldCloseAllSubviews = true;
+
+			// loop through subviews and call their close handlers
+			_.each( this.subviews, function( thisSubview ) {
+				if( _.isFunction( thisSubview.close ) )
+				{
+					thisSubview.close();
+					if( ! thisSubview.isClosed ) couldCloseAllSubviews = false;
+				}
+			} );
+
+			if( ! couldCloseAllSubviews ) this.shouldClose = false;
 		}
 	});
 })();
