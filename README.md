@@ -1,6 +1,6 @@
 # Backbone.Marionette.Subviews
 
-Easily create subviews (views within views) in your Backbone.js Marionette apps, directly from your underscore templates. This is a drop-in plugin that augments the original Marionette ItemView class with additional functionality.
+Easily create subviews (views within views) in your Backbone.js Marionette apps, directly from your templates. This is a drop-in plugin that augments the original Marionette ItemView class with additional functionality.
 
 The work on this plugin was directly inspired by [Spike Brehm's](https://github.com/spikebrehm) NestedView.
 
@@ -15,11 +15,21 @@ The work on this plugin was directly inspired by [Spike Brehm's](https://github.
 
 In your underscore template for MyItemView, which contains a subview MySubview:
 
-```
+```javascript
 <script type='text/template' id="MyItemViewTemplate">
 	<h1>This is my item view template</h1>
 
 	<%= subview( "MySubview" ) %>
+</script>
+```
+
+Or, if you are not using underscore, an alternative syntax is:
+
+```javascript
+<script type='text/template' id="MyItemViewTemplate">
+	<h1>This is my item view template</h1>
+
+	<div data-subview-name="MySubview"></div>
 </script>
 ```
 
