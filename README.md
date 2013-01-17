@@ -6,16 +6,18 @@ The work on this plugin was directly inspired by [Spike Brehm's](https://github.
 
 ## Benefits
 
-* Create named subviews with a crystal clear syntax directly from your underscore templates 
-* Subviews are created with pure javascript - no need to put "placeholder" elements in your templates
+* Create named subviews with a crystal clear syntax directly from your templates.
+* Organize all javascript logic for creating subviews in a declarative hash.
 * Access subviews via the automatically populated myView.subviews hash.
-* Organize all javascript logic for creating subviews in a declarative hash
+* Supports re-rendering of parent view while reusing existing subview objects.
+* Automatically closes subviews when parent view is closed.
+* Works seamlessly with [Backbone.Courier](Backbone.Courier), for easy inter-view communication.
 
 ## Usage
 
 In your underscore template for MyItemView, which contains a subview MySubview:
 
-```javascript
+```
 <script type='text/template' id="MyItemViewTemplate">
 	<h1>This is my item view template</h1>
 
@@ -25,7 +27,7 @@ In your underscore template for MyItemView, which contains a subview MySubview:
 
 Or, if you are not using underscore, an alternative syntax is:
 
-```javascript
+```
 <script type='text/template' id="MyItemViewTemplate">
 	<h1>This is my item view template</h1>
 
@@ -56,7 +58,7 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. See above for alternative syntax for declaring a subview that does not use a template helper.
+After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. If using the alternative syntax (shown above) for declaring a subview that without template helper, the "placeholder" div is completely replaced with the subview's element.
 
 The subviewCreators hash of your view should contain an entry for each subview. The key of each entry is the subview's name, and the value is a function that should create and return the subview instance.
 
@@ -76,4 +78,4 @@ You can turn on debugMode be setting the variable of the same name to true, whic
 
 ## Bonus
 
-This plugin works very well with (Backbone.Courier)[https://github.com/dgbeck/backbone.courier], since you may use your subview names as the `source` part of the `onMessages` and `passMessages` hashes. Backbone.Courier provides an easy way for views to communicate up and down the view hierarchy.
+This plugin works very well with [Backbone.Courier](https://github.com/dgbeck/backbone.courier), since you may use your subview names as the `source` part of the `onMessages` and `passMessages` hashes. Backbone.Courier provides an easy way for views to communicate up and down the view hierarchy.
