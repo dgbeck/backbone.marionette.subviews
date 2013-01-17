@@ -56,9 +56,9 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created.
+After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. See above for alternative syntax for declaring a subview that does not use a template helper.
 
-The subviewCreators hash of your view should contain an element for each subview. The key of each element is the subview's name, and the value is a function that should create and return the subview instance.
+The subviewCreators hash of your view should contain an entry for each subview. The key of each entry is the subview's name, and the value is a function that should create and return the subview instance.
 
 Subviews are not rendered until after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender method is called) after all subviews have finished rendering. The sequence of events is as follows:
 
@@ -70,4 +70,10 @@ Subviews are not rendered until after the parent view has completely finished re
 
 A parent view will automatically attempt to close all its subviews when its close() method is called. If any subview can not be closed, then the parent view will also not close.
 
+When a view is re-rendered, its subviews will also be re-rendered, as opposed to being replaced with new view objects. As a result any state information that the subview objects contain will be preserved.
+
 You can turn on debugMode be setting the variable of the same name to true, which will help in debugging errors in rendering code by leaving breadcrumbs in the console log. (The call stack can be difficult to interpret when rendering subviews several layers deep.)
+
+## Bonus
+
+This plugin works very well with (Backbone.Courier)[https://github.com/dgbeck/backbone.courier], since you may use your subview names as the `source` part of the `onMessages` and `passMessages` hashes. Backbone.Courier provides an easy way for views to communicate up and down the view hierarchy.
