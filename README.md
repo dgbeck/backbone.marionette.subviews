@@ -1,14 +1,14 @@
 # Backbone.Marionette.Subviews
 
-Easily create subviews (views within views) in your Backbone.js Marionette apps, directly from your templates. This is a drop-in plugin that augments the original Marionette ItemView class with additional functionality.
+Easily create and manage subviews (views within views) in your Backbone.js Marionette apps. This is a drop-in plugin that augments the original Marionette ItemView class with additional functionality.
 
 The work on this plugin was directly inspired by [Spike Brehm's](https://github.com/spikebrehm) NestedView.
 
 ## Benefits
 
-* Create named subviews with a crystal clear syntax directly from your templates.
+* Use a clear and consistent syntax in your templates to insert subviews.
 * Organize all javascript logic for creating subviews in a declarative hash.
-* Access subviews via the automatically populated myView.subviews hash.
+* Access subviews via the automatically populated `myView.subviews` hash.
 * Supports re-rendering of parent view while reusing existing subview objects.
 * Automatically closes subviews when parent view is closed.
 * Works seamlessly with [Backbone.Courier](Backbone.Courier), for easy inter-view communication.
@@ -58,7 +58,7 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. If using the alternative syntax (shown above) for declaring a subview that without template helper, the "placeholder" div is completely replaced with the subview's element.
+After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. You may also use the alternative syntax (shown above) for declaring a subview that without a template helper. In this case the "placeholder" div is completely replaced with the subview's element.
 
 The subviewCreators hash of your view should contain an entry for each subview. The key of each entry is the subview's name, and the value is a function that should create and return the subview instance.
 
