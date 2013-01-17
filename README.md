@@ -25,7 +25,7 @@ In your underscore template for MyItemView, which contains a subview MySubview:
 </script>
 ```
 
-Or, if you are not using underscore, an alternative syntax is:
+Or, if you are using a different templating library, an alternative syntax is:
 
 ```
 <script type='text/template' id="MyItemViewTemplate">
@@ -58,16 +58,16 @@ MyItemViewClass = Backbone.Marionette.ItemView.extend( {
 
 ## Details
 
-After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. You may also use the alternative syntax (shown above) for declaring a subview that without a template helper. In this case the "placeholder" div is completely replaced with the subview's element.
+After including `backbone.marionette.subviews.js` in your project, the `subview` helper will automatically be available in all of your underscore templates. The helper takes one argument, which is the name of the subview to be created. You may also use the alternative syntax (shown above) for declaring a subview that without a template helper. In this case the "placeholder" `div` is completely replaced with the subview's element.
 
-The subviewCreators hash of your view should contain an entry for each subview. The key of each entry is the subview's name, and the value is a function that should create and return the subview instance.
+The `subviewCreators` hash of your view should contain an entry for each subview. The key of each entry is the subview's name, and the value is a function that should create and return the subview instance.
 
 Subviews are not rendered until after the parent view has completely finished rendering. A new "after:render" event is fired (and its corresponding onAfterRender method is called) after all subviews have finished rendering. The sequence of events is as follows:
 
 	1. Marionette's "before:render" event is fired on parent view
 	2. [parent view is rendered]
 	3. Marionette's "render" event is fired on parent view
-	4. [subviews are created and rendered in the order they appear in the underscore template]
+	4. [subviews are created and rendered in the order they appear in your template]
 	5. A new "after:render" event is fired on parent view
 
 A parent view will automatically attempt to close all its subviews when its close() method is called. If any subview can not be closed, then the parent view will also not close.
