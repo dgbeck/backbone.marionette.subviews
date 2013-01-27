@@ -1,6 +1,7 @@
 # Backbone.Marionette.Subviews
 
-#### IMPORTANT: Development of this plugin has been stopped because it has been replaced by the more general [Backbone.Subviews](https://github.com/dgbeck/backbone.subviews) View mixin, which does not depend on Marionette. Please use that mixin for all new projects, as it contains all features of this plugin and is also being actively developed and maintained.
+#### IMPORTANT: Development of this plugin has been stopped because it has been replaced by the more general [Backbone.Subviews](https://github.com/dgbeck/backbone.subviews) View mixin, which does not depend on Marionette. Please use that mixin for all new projects, as it contains all features of this plugin and is being actively developed and maintained.
+
 
 Easily create and manage subviews (views within views) in your Backbone.js Marionette apps. This is a drop-in plugin that augments the original Marionette ItemView class with additional functionality.
 
