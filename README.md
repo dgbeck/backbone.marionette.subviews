@@ -1,4 +1,4 @@
-#### IMPORTANT: Development of this plugin has been stopped because it has been replaced by the more general [Backbone.Subviews](https://github.com/dgbeck/backbone.subviews) View mixin, which does not depend on Marionette. Please use that mixin for all new projects, as it contains all features of this plugin and is being actively developed and maintained.
+#### IMPORTANT: Development of this plugin has been stopped because it has been replaced by the more general [Backbone.Subviews](https://github.com/rotundasoftware/backbone.subviews) View mixin, which does not depend on Marionette. Please use that mixin for all new projects, as it contains all features of this plugin and is being actively developed and maintained.
 
 # Backbone.Marionette.Subviews
 
